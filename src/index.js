@@ -1,15 +1,15 @@
 // Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
 // Import components
 import App from './app';
 
 ReactDOM.render(
-  <Router history={ browserHistory }>
-    <Route path="/" component={ App }></Route >
-  </Router>,
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 // registerServiceWorker();
