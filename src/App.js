@@ -1,9 +1,19 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div>This is where it all begins</div>
+      <section>
+        <Link to={"/"}>Go back to homepage</Link>
+        <form>
+          <label>
+            Type your topics
+            <input></input>
+          </label>
+          <button>Submit!</button>
+        </form>
+      </section>
     )
   }
 }
