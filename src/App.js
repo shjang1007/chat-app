@@ -6,13 +6,6 @@ class App extends Component {
     return (
       <section>
         <Link to={"/"}>Go back to homepage</Link>
-        <form>
-          <label>
-            Type your topics
-            <input></input>
-          </label>
-          <button>Submit!</button>
-        </form>
       </section>
     )
   }
