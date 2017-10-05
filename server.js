@@ -8,7 +8,9 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
 // connect to MongoDB
-mongoose.connect("mongodb://bekgu:Sh1423017@ds161194.mlab.com:61194/bj");
+mongoose.connect("mongodb://<bekgu>:<Sh1423017>@ds161194.mlab.com:61194/bj", {
+  useMongoClient: true
+});
 
 // create App and Router
 var app = express();
