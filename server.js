@@ -12,6 +12,9 @@ mongoose.connect("mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj", {
   useMongoClient: true
 });
 
+// Import Schema
+var Dummy = require("./models/dummy");
+
 // create App and Router
 var app = express();
 var router = express.Router();
@@ -22,6 +25,14 @@ var port = process.env.API_PORT || 4000;
 // use body parser to pick out JSON data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Middleware to handle requests
+router.use(function(req, res, next) {
+  // testing for now
+  console.log("I am inside my middleware yoohoo")
+  next(); // this is the key to middleware
+});
+
 
 // Will act as tester to see if our routes are working properly
 router.get("/", function(req, res) {
