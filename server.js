@@ -73,6 +73,7 @@ router.get("/", function(req, res) {
   res.json({ message: "welcome to the world where APIs happen"});
 })
 
+// can to router.get but router.route allows you to tag request types on an on
 router.route("/dummies").post(
   (req, res) => {
     var dummy = new Dummy();
