@@ -73,6 +73,19 @@ router.get("/", function(req, res) {
   res.json({ message: "welcome to the world where APIs happen"});
 })
 
+router.route("/dummies").post(
+  (req, res) => {
+    var dummy = new Dummy();
+    dummy.name = req.body.name;
+
+    dummy.save((err) => {
+      if(err) res.send(err)
+
+      res.json({ message: "Dummy model created"});
+    })
+  }
+);
+
 // handle API request with /api prefix
 app.use("/api", router);
 
