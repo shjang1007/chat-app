@@ -14,6 +14,7 @@ mongoose.connect("mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj", {
 
 // Import Schema
 var Dummy = require("./models/dummy");
+var User = require("./models/user");
 
 // create App and Router
 var app = express();

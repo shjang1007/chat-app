@@ -8,7 +8,9 @@ class App extends Component {
   render() {
     return (
       <section>
-        You should only see this if you are logged in!
+        <form>
+          Adding Form!
+        </form>
       </section>
     )
   }
