@@ -14,20 +14,23 @@ mongoose.connect(url, {
   useMongoClient: true
 });
 
+// Plugging my own JS native promise library
+mongoose.Promise = global.Promise;
+
 // Import Schema
 var Dummy = require("./models/dummy");
 var User = require("./models/user");
 
 // Create Dummy models
-var newDummy = Dummy({
-  name: "A"
-});
-
-newDummy.save((err) => {
-  if(err) throw err;
-
-  console.log("Dummy Created");
-})
+// var newDummy = Dummy({
+//   name: "B"
+// });
+//
+// newDummy.save((err) => {
+//   if(err) throw err;
+// 
+//   console.log("Dummy Created");
+// });
 
 Dummy.find({}, (err, dummies) => {
   if(err) throw err;
