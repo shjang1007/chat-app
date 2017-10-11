@@ -6,6 +6,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var passport = require("passport-oauth2");
 
 // connect to MongoDB
 var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
@@ -86,6 +87,13 @@ router.route("/dummies").post(
     })
   }
 );
+
+// Logout route?
+app.get("/logout", (req, res) => {
+  console.log('logging out');
+  req.logout();
+  res.redirect("/");
+});
 
 // handle API request with /api prefix
 app.use("/api", router);
