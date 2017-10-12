@@ -72,7 +72,7 @@ router.use(function(req, res, next) {
 // Will act as tester to see if our routes are working properly
 router.get("/", function(req, res) {
   res.json({ message: "welcome to the world where APIs happen"});
-})
+});
 
 // can to router.get but router.route allows you to tag request types on an on
 router.route("/dummies").post(
@@ -89,10 +89,19 @@ router.route("/dummies").post(
 );
 
 // Logout route?
-app.get("/logout", (req, res) => {
+app.get('/', function (req, res) {
+  var html = "<ul>\
+    <li><a href='/auth/github'>GitHub</a></li>\
+    <li><a href='/logout'>logout</a></li>\
+  </ul>";
+
+  res.send(html);
+});
+
+app.get('/logout', function(req, res){
   console.log('logging out');
   req.logout();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 // handle API request with /api prefix
