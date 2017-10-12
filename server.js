@@ -7,6 +7,8 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var passport = require("passport");
+var session = require('express-session');
+var GoogleStrategy = require("passport-google-oauth2").Strategy;
 
 // connect to MongoDB
 var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
@@ -88,12 +90,57 @@ router.route("/dummies").post(
   }
 );
 
+// Passport to authenticate
+passport.use(new GoogleStrategy({
+    clientID: "957386202025-lk83nqjg87pblqiv0vkri4n0b638e1s2.apps.googleusercontent.com",
+    clientSecret: "KJyKtN1BtBYJy3mfiGbtByD1",
+    callbackURL: "http://localhost:4000/auth/google/callback"
+  },
+  (accessToken, refreshToken, profile, done) => {
+    return done(null, profile);
+  }
+));
+
+// Express and Passport Session
+app.use(session({secret: "What Secret?"}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  // placeholder for custom user serialization
+  // null is for errors
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  // placeholder for custom user deserialization.
+  // maybe you are going to get the user from mongo by id?
+  // null is for errors
+  done(null, user);
+});
+
+// to authenticate google
+app.get("/auth/google", passport.authenticate("google",{scope: "https://www.googleapis.com/auth/plus.login"}));
+
+// google to call this
+app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
+  function(req, res) {
+    res.redirect("/");
+  }
+);
+
 // Logout route?
 app.get('/', function (req, res) {
   var html = "<ul>\
-    <li><a href='/auth/github'>GitHub</a></li>\
+    <li><a href='/auth/google'>Google</a></li>\
     <li><a href='/logout'>logout</a></li>\
   </ul>";
+
+  // dump the user for debugging
+  if (req.isAuthenticated()) {
+    html += "<p>authenticated as user:</p>"
+    html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
+  }
 
   res.send(html);
 });
