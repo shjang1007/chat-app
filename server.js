@@ -6,7 +6,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var passport = require("passport-oauth2");
+var passport = require("passport");
 
 // connect to MongoDB
 var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
