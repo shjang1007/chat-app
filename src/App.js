@@ -2,15 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class App extends Component {
-  constructor(props) {
-  }
-
   render() {
     return (
       <section>
-        <form>
-          Adding Form!
-        </form>
+        I am inside a react app
       </section>
     )
   }
