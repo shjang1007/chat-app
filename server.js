@@ -56,7 +56,7 @@ var app = express();
 var router = express.Router();
 
 // set port;
-var port = process.env.API_PORT || 3000;
+var port = process.env.API_PORT || 4000;
 
 // use body parser to pick out JSON data
 app.use(bodyParser.urlencoded({ extended: true }));
