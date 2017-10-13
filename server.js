@@ -9,6 +9,7 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var session = require('express-session');
 var GoogleStrategy = require("passport-google-oauth2").Strategy;
+var path = require('path')
 
 // connect to MongoDB
 var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
@@ -130,29 +131,37 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
 );
 
 // Logout route?
-app.get('/', function (req, res) {
-  var html = "<ul>\
-    <li><a href='/auth/google'>Google</a></li>\
-    <li><a href='/logout'>logout</a></li>\
-  </ul>";
+// app.get('/', function (req, res) {
+//   var html = "<ul>\
+//     <li><a href='/auth/google'>Google</a></li>\
+//     <li><a href='/logout'>logout</a></li>\
+//   </ul>";
+//
+//   // dump the user for debugging
+//   if (req.isAuthenticated()) {
+//     html += "<p>authenticated as user:</p>"
+//     html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
+//   }
+//
+//   res.send(html);
+// });
+//
+// app.get('/logout', function(req, res){
+//   console.log('logging out');
+//   req.logout();
+//   res.redirect('/');
+// });
 
-  // dump the user for debugging
-  if (req.isAuthenticated()) {
-    html += "<p>authenticated as user:</p>"
-    html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
-  }
-
-  res.send(html);
-});
-
-app.get('/logout', function(req, res){
-  console.log('logging out');
-  req.logout();
-  res.redirect('/');
-});
+// Load Static Files
+app.use(express.static(path.resolve(__dirname, "./public")));
 
 // handle API request with /api prefix
 app.use("/api", router);
+
+// Show index file all the time?
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+});
 
 
 app.listen(port, function() {
