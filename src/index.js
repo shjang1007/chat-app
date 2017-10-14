@@ -7,7 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import App from './app';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter url="http://localhost:4000/api/" pollInerval={2000}>
     <Route path="/" component={ App }></Route>
   </BrowserRouter>,
   document.getElementById('root')
