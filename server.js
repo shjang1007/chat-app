@@ -56,7 +56,7 @@ var app = express();
 var router = express.Router();
 
 // set port;
-var port = process.env.API_PORT || 3001;
+var port = process.env.API_PORT || 4000;
 
 // use body parser to pick out JSON data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -95,7 +95,7 @@ router.route("/dummies").post(
 passport.use(new GoogleStrategy({
     clientID: "957386202025-lk83nqjg87pblqiv0vkri4n0b638e1s2.apps.googleusercontent.com",
     clientSecret: "KJyKtN1BtBYJy3mfiGbtByD1",
-    callbackURL: "http://localhost:3001/auth/google/callback"
+    callbackURL: "http://localhost:4000/auth/google/callback"
   },
   (accessToken, refreshToken, profile, done) => {
     return done(null, profile);
@@ -126,7 +126,7 @@ app.get("/auth/google", passport.authenticate("google",{scope: ["email", "profil
 // google to call this
 app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
   function(req, res) {
-    res.redirect("/");
+    res.redirect("/homepage");
   }
 );
 
@@ -152,14 +152,15 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
 //   res.redirect('/');
 // });
 
+app.use(express.static(path.resolve(__dirname, "./build")));
 
 // handle API request with /api prefix
 app.use("/api", router);
 
 // Show index file all the time?
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./public", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./build", "index.html"));
+});
 
 
 app.listen(port, function() {
