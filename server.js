@@ -152,14 +152,14 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
 //   res.redirect('/');
 // });
 
-app.use(express.static(path.resolve(__dirname, "./build")));
+app.use(express.static(path.resolve(__dirname, "./public")));
 
 // handle API request with /api prefix
 app.use("/api", router);
 
 // Show index file all the time?
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
 });
 
 
