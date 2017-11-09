@@ -17,5 +17,25 @@
   "bugs": {
     "url": "https://github.com/shjang1007/chat-app/issues"
   },
-  "homepage": "https://github.com/shjang1007/chat-app#readme"
+  "homepage": "https://github.com/shjang1007/chat-app#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.1",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth2": "^0.1.6",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "webpack": "^3.8.1"
+  }
 }
