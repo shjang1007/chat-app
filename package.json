@@ -4,8 +4,8 @@
   "description": "Friendly Chat Application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "webpack": "node_modules/.bin/webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.1",
     "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-google-oauth2": "^0.1.6",
     "react": "^16.1.0",
