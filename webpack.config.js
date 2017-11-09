@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/chat.jsx",
   output: {
-    filename: "./bundle.js"
+    filename: "./public/bundle.js"
   },
   resolve: {
     extensions: [".js", ".jsx", "*"]

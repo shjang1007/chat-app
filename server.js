@@ -22,7 +22,7 @@ mongoose.connect(url, {
 mongoose.Promise = global.Promise;
 
 // Import Schema
-var Dummy = require("./models/dummy");
+// var Dummy = require("./models/dummy");
 
 // Create Dummy models
 // var newDummy = Dummy({
