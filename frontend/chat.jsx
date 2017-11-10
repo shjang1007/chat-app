@@ -5,5 +5,5 @@ import ReactDOM from "react-dom";
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
 
-  ReactDOM.render(<div>Can you see me?</div>, root);
+  ReactDOM.render(<div>This one too?</div>, root);
 });
