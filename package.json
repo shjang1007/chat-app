@@ -4,8 +4,8 @@
   "description": "Friendly Chat Application",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "webpack": "node_modules/.bin/webpack --watch"
+    "webpack": "node_modules/.bin/webpack --watch",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
