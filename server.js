@@ -126,7 +126,7 @@ app.get("/auth/google", passport.authenticate("google",{scope: ["email", "profil
 // google to call this
 app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
   function(req, res) {
-    res.redirect("/homepage");
+    res.redirect("/");
   }
 );
 
