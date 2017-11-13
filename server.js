@@ -159,10 +159,10 @@ app.use("/api", router);
 // Use SASS middleware to transform .scss to .scss
 app.use(
   sassMiddleware({
-    src: __dirname + "/scss",
-    dest: __dirname + "/public/stylesheet",
+    src: path.join(__dirname, "scss"),
+    dest: path.join(__dirname + "/public"),
     debug: true,
-    outputStyle: "compressed"
+    outputStyle: "compressed",
   })
 )
 
