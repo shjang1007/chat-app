@@ -13,7 +13,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: "babel-loader",
         query: {
           presets: ["react", "env"]
@@ -23,3 +23,10 @@ module.exports = {
   },
   devtool: "source-maps"
 };
+
+// Possible use of node loader?
+// {
+//   test: /\.scss?$/,
+//   exclude: /(node_modules)/,
+//   loaders: ["style", "css", "sass"]
+// }

@@ -155,6 +155,16 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
 // handle API request with /api prefix
 app.use("/api", router);
 
+// Use SASS middleware to transform .scss to .scss
+app.use(
+  sass.middleware({
+    src: __dirname + "/sass",
+    dest: __dirname + "/public",
+    debug: true,
+    outputStyle: "compressed"
+  })
+)
+
 app.use(express.static(path.resolve(__dirname, "./public")));
 
 // Show index file all the time?
