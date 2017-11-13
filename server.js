@@ -7,9 +7,10 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var passport = require("passport");
-var session = require('express-session');
+var session = require("express-session");
 var GoogleStrategy = require("passport-google-oauth2").Strategy;
-var path = require('path')
+var path = require("path");
+var sassMiddleware = require("node-sass-middleware");
 
 // connect to MongoDB
 var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
@@ -157,9 +158,9 @@ app.use("/api", router);
 
 // Use SASS middleware to transform .scss to .scss
 app.use(
-  sass.middleware({
-    src: __dirname + "/sass",
-    dest: __dirname + "/public",
+  sassMiddleware({
+    src: __dirname + "/scss",
+    dest: __dirname + "/public/stylesheet",
     debug: true,
     outputStyle: "compressed"
   })
