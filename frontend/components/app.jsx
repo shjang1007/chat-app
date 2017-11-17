@@ -9,7 +9,8 @@ class App extends Component {
   render() {
     return(
       <section>
-        <Link to={"/auth/google"}>To Google Auth</Link>
+        <a href="/auth/google/">Sign In</a>
+
         <Link to={"/logout"}>Log the F out</Link>
       </section>
     )
