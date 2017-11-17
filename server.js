@@ -165,6 +165,7 @@ app.get("/logout", (req, res) => {
 app.use("/api", router);
 
 // Use SASS middleware to transform .scss to .scss
+// Also, use prefix to guide css files
 app.use(
   sassMiddleware({
     src: path.join(__dirname, "scss/stylesheets"),
