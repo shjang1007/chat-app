@@ -10,8 +10,8 @@ class App extends Component {
     return(
       <section>
         <a href="/auth/google/">Sign In</a>
-
-        <Link to={"/logout"}>Log the F out</Link>
+        <br/>
+        <a href="/logout">Log out</a>
       </section>
     )
   }

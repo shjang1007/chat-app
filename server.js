@@ -104,7 +104,7 @@ passport.use(new GoogleStrategy({
 ));
 
 // Express and Passport Session
-// app.use(session({secret: "What Secret?"}));
+app.use(session({secret: "What Secret?"}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -130,6 +130,14 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
     res.redirect("/");
   }
 );
+
+app.get("/logout", (req, res) => {
+  console.log(req.session);
+    req.session.destroy((e) => {
+        req.logout();
+        res.redirect('/');
+    });
+});
 
 // Logout route?
 // app.get('/', function (req, res) {
