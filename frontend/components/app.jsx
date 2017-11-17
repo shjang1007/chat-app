@@ -12,6 +12,7 @@ class App extends Component {
         <a href="/auth/google/">Sign In</a>
         <br/>
         <a href="/logout">Log out</a>
+        
       </section>
     )
   }
