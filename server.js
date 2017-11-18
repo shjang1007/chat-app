@@ -99,8 +99,15 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:4000/auth/google/callback"
   },
   (accessToken, refreshToken, profile, done) => {
-    return done(null, profile);
-  }
+    User.findOrCreate(
+      { userid: profile.id },
+      {
+        name: profile.displayName,
+        userid: profile.id,
+        email: profile.email
+      },
+      (err, user) => done(err, user));
+    }
 ));
 
 // Express and Passport Session
