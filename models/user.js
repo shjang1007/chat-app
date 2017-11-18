@@ -12,6 +12,19 @@ var userSchema = new Schema({
   timestamps: true
 });
 
+// Each mongoose model allows developers to create statics methods for model
+// Create static method to combine find one and crate methods
+userSchema.statics.findOrCreate = (condition, doc, callback) => {
+  const self = this;
+  self.findOne(condition, (err, result) => {
+    return result
+      ? callback(err, result)
+      : self.create(doc, (err, result) => {
+        return callback(err, result);
+      });
+  });
+};
+
 // Add validations and any custom methods for user model
 // userSchema.pre("save", (callback) => {
 // });
