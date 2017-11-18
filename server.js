@@ -79,18 +79,18 @@ router.get("/", function(req, res) {
 });
 
 // can to router.get but router.route allows you to tag request types on an on
-router.route("/dummies").post(
-  (req, res) => {
-    var dummy = new Dummy();
-    dummy.name = req.body.name;
-
-    dummy.save((err) => {
-      if(err) res.send(err)
-
-      res.json({ message: "Dummy model created"});
-    })
-  }
-);
+// router.route("/dummies").post(
+//   (req, res) => {
+//     var dummy = new Dummy();
+//     dummy.name = req.body.name;
+//
+//     dummy.save((err) => {
+//       if(err) res.send(err)
+//
+//       res.json({ message: "Dummy model created"});
+//     })
+//   }
+// );
 
 // Passport to authenticate
 passport.use(new GoogleStrategy({
