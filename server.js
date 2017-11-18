@@ -111,7 +111,9 @@ passport.use(new GoogleStrategy({
 ));
 
 // Express and Passport Session
-app.use(session({secret: "What Secret?"}));
+app.use(session({
+  secret: "What Secret?"
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
