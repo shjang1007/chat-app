@@ -2,14 +2,23 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  username: { type: String,
-              required: true,
-              unique: true },
-  password: { type: String,
-              required: true
-            }
-},{
-  timestamps: true
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  username: {
+    type: String,
+    required: true
+  },
+  userid: {
+    type: String,
+    required: true
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 // Each mongoose model allows developers to create statics methods for model
