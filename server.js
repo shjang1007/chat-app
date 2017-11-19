@@ -112,7 +112,9 @@ passport.use(new GoogleStrategy({
 
 // Express and Passport Session
 app.use(session({
-  secret: "What Secret?"
+  secret: "Secret",
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
