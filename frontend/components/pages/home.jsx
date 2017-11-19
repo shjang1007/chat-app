@@ -1,7 +1,7 @@
-// Import dependencies
+// Import Dependencies
 import React, { Component } from "react";
 
-class App extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
   }
@@ -9,10 +9,10 @@ class App extends Component {
   render() {
     return(
       <section>
-        <div>Hello</div>
+        <div>You can only be here if you are logged in</div>
       </section>
     )
   }
 }
 
-export default App;
+export default Home;

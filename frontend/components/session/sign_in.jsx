@@ -1,7 +1,7 @@
 // Import dependencies
 import React, { Component } from "react";
 
-class App extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
   }
@@ -9,10 +9,12 @@ class App extends Component {
   render() {
     return(
       <section>
-        <div>Hello</div>
+        <a href="/auth/google/">Sign In</a>
+        <br/>
+        <a href="/logout">Log out</a>
       </section>
     )
   }
 }
 
-export default App;
+export default SignIn;
