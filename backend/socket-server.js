@@ -38,7 +38,14 @@ class SocketServer {
     })
   }
 
-  handleRoomJoining(socket, room) {
+  handleRoomJoining(socket) {
+    socket.on("join", (room) => {
+      socket.leave(currentRoom[socket.id]);
+      this.joinRoom(socket, room.newRoom);
+    });
+  }
+
+  joinRoom(socket, room) {
     socket.join(room);
     currentRoom[socket.id] = room;
 
