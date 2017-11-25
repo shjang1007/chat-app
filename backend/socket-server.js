@@ -1,3 +1,5 @@
 import Socket from "socket.io";
 
-class SocketServer
+class SocketServer {
+  
+}
