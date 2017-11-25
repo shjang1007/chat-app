@@ -21,4 +21,12 @@ class SocketServer {
     return guestNumber + 1;
   }
 
+  handleClientDisconnections(socket) {
+    socket.on("disconnect", () => {
+      const id = socket.id
+      const nameIdx = namesUsed.indexOf(nickNames[id]);
+      delete nickNames[id];
+      namesUsed.splice(id, 1);
+    })
+  }
 }
