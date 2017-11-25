@@ -1,4 +1,4 @@
-router.route("/session")
+router.route("/users")
 .post(
   (req, res) => {
 
