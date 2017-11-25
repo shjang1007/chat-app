@@ -29,4 +29,15 @@ class SocketServer {
       namesUsed.splice(id, 1);
     })
   }
+
+  handleMessageBroadcasting(socket) {
+    socket.on("message", (message) => {
+      socket.broadcast.to(message.room).emit("message", {
+        text: `${nickNames[socket.id]}: ${message.text}`
+      })
+    })
+  }
 }
+
+// Possible future methods
+// 1. Name change request
