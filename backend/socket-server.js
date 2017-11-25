@@ -1,4 +1,5 @@
-import Socket from "socket.io";
+import { socket } from "socket.io";
+const io = socket(server);
 
 // Trying to determine what below variables are used for
 let chat;
@@ -62,6 +63,32 @@ class SocketServer {
 
       socket.emit("message", { text: usersInRoomSummary});
     });
+  }
+
+  listen(server) {
+    io.on("connection", (socket) => {
+      // use helper methods upon websocket connection
+      guestNumber = this.assignGuestName(
+        socket, guestNumber, nickNames, namesUsed
+      )
+      this.joinRoom(socket, "lobby");
+      this.handleMessageBroadcast(socket, nickNames);
+      this.handleRoomJoining(Socket);
+
+      socket.on("rooms", () => {
+        const sockets = io.sockets.sockets;
+        let rooms = [];
+
+        sockets.forEach((socket) => {
+          return rooms = rooms.concat(this.listRooms(sockets[socket]));
+        });
+
+        rooms.Array.from(new Set(rooms));
+        socket.emit("rooms", rooms);
+      });
+    });
+
+    this.handleClientDisconnection(socket);
   }
 }
 
