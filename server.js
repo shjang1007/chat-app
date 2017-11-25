@@ -2,18 +2,21 @@
 "use strict"
 
 // Import dependencies
-var express = require("express");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var passport = require("passport");
-var session = require("express-session");
-var GoogleStrategy = require("passport-google-oauth2").Strategy;
-var path = require("path");
-var sassMiddleware = require("node-sass-middleware");
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const GoogleStrategy = require("passport-google-oauth2").Strategy;
+const path = require("path");
+const sassMiddleware = require("node-sass-middleware");
+
+// Import websocket server logic module
+const socketServer = require("./backend/socket-server");
 
 // connect to MongoDB
-var url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
+const url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
 
 mongoose.connect(url, {
   useMongoClient: true
