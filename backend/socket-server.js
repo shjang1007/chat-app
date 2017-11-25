@@ -65,6 +65,13 @@ class SocketServer {
     });
   }
 
+  listRooms(socket) {
+    const rooms = Object.keys(socket.rooms);
+    return room.filter((room) => {
+      return room !== socket.id;
+    });
+  }
+
   listen(server) {
     io.on("connection", (socket) => {
       // use helper methods upon websocket connection
@@ -73,7 +80,7 @@ class SocketServer {
       )
       this.joinRoom(socket, "lobby");
       this.handleMessageBroadcast(socket, nickNames);
-      this.handleRoomJoining(Socket);
+      this.handleRoomJoining(socket);
 
       socket.on("rooms", () => {
         const sockets = io.sockets.sockets;
