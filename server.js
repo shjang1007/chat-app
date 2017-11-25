@@ -56,11 +56,15 @@ mongoose.Promise = global.Promise;
 // })
 
 // create App and Router
-var app = express();
-var router = express.Router();
+const app = express();
+const http = require("http").Server(app);
+const router = express.Router();
+
+// Start websocket server with http
+socketServer.listen(http);
 
 // set port;
-var port = process.env.API_PORT || 4000;
+const port = process.env.API_PORT || 4000;
 
 // use body parser to pick out JSON data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -84,7 +88,7 @@ router.get("/", function(req, res) {
 // can to router.get but router.route allows you to tag request types on an on
 // router.route("/dummies").post(
 //   (req, res) => {
-//     var dummy = new Dummy();
+//     const dummy = new Dummy();
 //     dummy.name = req.body.name;
 //
 //     dummy.save((err) => {
@@ -155,7 +159,7 @@ app.get("/logout", (req, res) => {
 
 // Logout route?
 // app.get('/', function (req, res) {
-//   var html = "<ul>\
+//   const html = "<ul>\
 //     <li><a href='/auth/google'>Google</a></li>\
 //     <li><a href='/logout'>logout</a></li>\
 //   </ul>";
