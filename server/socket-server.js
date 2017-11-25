@@ -1,5 +1,4 @@
-import { socket } from "socket.io";
-const io = socket(server);
+const io = require("socket.io")
 
 // Trying to determine what below variables are used for
 let chat;
@@ -8,7 +7,7 @@ const nickNames = {};
 let namesUsed = [];
 const currentRoom = {};
 
-class SocketServer {
+const socketServer = {
   // Method to tell server to add more guests to socket server
   assignGuestName(socket, guestNumber, nickNames, namesUsed) {
     const id = `${guestNumber}`;
@@ -20,7 +19,7 @@ class SocketServer {
 
     namesUsed.push(id);
     return guestNumber + 1;
-  }
+  },
 
   handleClientDisconnections(socket) {
     socket.on("disconnect", () => {
@@ -29,7 +28,7 @@ class SocketServer {
       delete nickNames[id];
       namesUsed.splice(id, 1);
     })
-  }
+  },
 
   handleMessageBroadcasting(socket) {
     socket.on("message", (message) => {
@@ -37,14 +36,14 @@ class SocketServer {
         text: `${nickNames[socket.id]}: ${message.text}`
       })
     })
-  }
+  },
 
   handleRoomJoining(socket) {
     socket.on("join", (room) => {
       socket.leave(currentRoom[socket.id]);
       this.joinRoom(socket, room.newRoom);
     });
-  }
+  },
 
   joinRoom(socket, room) {
     socket.join(room);
@@ -63,17 +62,18 @@ class SocketServer {
 
       socket.emit("message", { text: usersInRoomSummary});
     });
-  }
+  },
 
   listRooms(socket) {
     const rooms = Object.keys(socket.rooms);
     return room.filter((room) => {
       return room !== socket.id;
     });
-  }
+  },
 
   listen(server) {
-    io.on("connection", (socket) => {
+    const ioServer = io(server);
+    ioServer.on("connection", (socket) => {
       // use helper methods upon websocket connection
       guestNumber = this.assignGuestName(
         socket, guestNumber, nickNames, namesUsed
@@ -83,7 +83,7 @@ class SocketServer {
       this.handleRoomJoining(socket);
 
       socket.on("rooms", () => {
-        const sockets = io.sockets.sockets;
+        const sockets = ioServer.sockets.sockets;
         let rooms = [];
 
         sockets.forEach((socket) => {
@@ -93,13 +93,13 @@ class SocketServer {
         rooms.Array.from(new Set(rooms));
         socket.emit("rooms", rooms);
       });
+      
+      this.handleClientDisconnection(socket);
     });
-
-    this.handleClientDisconnection(socket);
   }
 }
 
 // Possible future methods
 // 1. Name change request
 
-export default SocketServer;
+module.exports = socketServer;

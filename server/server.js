@@ -3,7 +3,6 @@
 
 // Import dependencies
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -13,7 +12,7 @@ const path = require("path");
 const sassMiddleware = require("node-sass-middleware");
 
 // Import websocket server logic module
-const socketServer = require("./backend/socket-server");
+const socketServer = require("./socket-server");
 
 // connect to MongoDB
 const url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";

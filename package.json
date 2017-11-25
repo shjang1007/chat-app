@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack --watch",
-    "start": "nodemon server.js"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",

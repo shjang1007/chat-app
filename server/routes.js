@@ -1,6 +1,4 @@
 router.route("/users")
-.post(
-  (req, res) => {
-
+.post((req, res) => {
   }
 )
