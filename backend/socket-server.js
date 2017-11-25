@@ -37,6 +37,25 @@ class SocketServer {
       })
     })
   }
+
+  handleRoomJoining(socket, room) {
+    socket.join(room);
+    currentRoom[socket.id] = room;
+
+    socket.emit("joinResult", { room });
+    socket.broadcast.to(room).emit("message", {
+      text: `${nickNames[socket.id]} has joined ${room}!`
+    });
+
+    chat.of("/").in(`${room}`).clients((err, sockets) => {
+      if(err) return console.error(err);
+
+      const usersInRoom = sockets.map((sID) => nickNames[sId]).join(", ");
+      const usersInRoomSummary = `Users currently in ${room}: ${usersInRoom}`;
+
+      socket.emit("message", { text: usersInRoomSummary});
+    });
+  }
 }
 
 // Possible future methods
