@@ -101,3 +101,5 @@ class SocketServer {
 
 // Possible future methods
 // 1. Name change request
+
+export default SocketServer;
