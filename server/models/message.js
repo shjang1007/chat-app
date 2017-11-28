@@ -11,6 +11,9 @@ var messageSchema = new Schema({
   }
 });
 
+// Need to figure out how to setup foreign key relationship
+// Will have author/user and chatroom this message belongs to
+
 
 // Create model!
 var message = mongoose.model("Message", messageSchema);
