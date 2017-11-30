@@ -60,12 +60,6 @@ app.use(bodyParser.json());
 //   next(); // this is the key to middleware
 // });
 
-
-// Will act as tester to see if our routes are working properly
-router.get("/", function(req, res) {
-  res.json({ message: "welcome to the world where APIs happen"});
-});
-
 // can to router.get but router.route allows you to tag request types on an on
 // router.route("/dummies").post(
 //   (req, res) => {
@@ -162,6 +156,11 @@ app.get("/logout", (req, res) => {
 
 // handle API request with /api prefix
 app.use("/api", router);
+
+// Will act as tester to see if our routes are working properly
+router.get("/", (req, res) => {
+  res.json({ message: "welcome to the world where APIs happen"});
+});
 
 // Use SASS middleware to transform .scss to .scss
 // Also, use prefix to guide css files
