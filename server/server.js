@@ -3,12 +3,13 @@
 
 // Import dependencies
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
+const logger = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
-const path = require("path");
 const sassMiddleware = require("node-sass-middleware");
 
 // Import websocket server logic module
