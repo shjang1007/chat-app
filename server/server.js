@@ -18,9 +18,7 @@ const socketServer = require("./socket-server");
 // connect to MongoDB
 const url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
 
-mongoose.connect(url, {
-  useMongoClient: true
-});
+mongoose.connect(url, { useMongoClient: true });
 
 // Plugging my own JS native promise library
 mongoose.Promise = global.Promise;
@@ -53,14 +51,14 @@ app.use(logger("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Middleware to handle requests
-// Prior to express v4, things did not run in the order it was wrote
-router.use(function(req, res, next) {
-  // testing for now
-  // possible validation point?
-  console.log("Transfering @ middleware station");
-  next(); // this is the key to middleware
-});
+// // Middleware to handle requests
+// // Prior to express v4, things did not run in the order it was wrote
+// router.use(function(req, res, next) {
+//   // testing for now
+//   // possible validation point?
+//   console.log("Transfering @ middleware station");
+//   next(); // this is the key to middleware
+// });
 
 
 // Will act as tester to see if our routes are working properly
