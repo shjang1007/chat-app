@@ -25,35 +25,15 @@ mongoose.connect(url, {
 // Plugging my own JS native promise library
 mongoose.Promise = global.Promise;
 
-// Import Schema
-// var Dummy = require("./models/dummy");
+// import Routes here
 
-// Create Dummy models
-// var newDummy = Dummy({
-//   name: "B"
-// });
-//
-// newDummy.save((err) => {
-//   if(err) throw err;
-//
-//   console.log("Dummy Created");
-// });
-
-// Dummy.find({}, (err, dummies) => {
-//   if(err) throw err;
-//
-//   console.log(dummies);
-// })
-
-// Dummy.find({}, (err, dummies) => {
-//   dummies.forEach((dummy) => {
-//     dummy.remove((err) => {
-//       if(err) throw err;
-//
-//       console.log("deleted");
-//     })
-//   })
-// })
+// Enable CORS (Would like to read up a bit more on this to learn about CORS)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  // X-Requested-With provide securty against CSRF attacks
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 
 // create App and Router
 const app = express();
