@@ -46,6 +46,9 @@ socketServer.listen(http);
 // set port;
 const port = process.env.API_PORT || 4000;
 
+// Set logger using predefined format
+app.use(logger("tiny"));
+
 // use body parser to pick out JSON data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
