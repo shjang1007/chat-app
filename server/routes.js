@@ -10,11 +10,10 @@ router.route("/users")
   }
 )
 
+// for now just create message and delete message and update message
 router.route("/messages")
-  .get(messageController.getMessages)
-  .post(messageController.addMessages)
-  .patch(messageController.updateMessages);
+  .post(messageController.createMessages);
 
 router.route("/messages/:id")
-  .get(messageController.getMessage)
+  .patch(messageController.updateMessages)
   .delete(messageController.deleteMessage);
