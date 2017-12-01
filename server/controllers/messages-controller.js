@@ -11,7 +11,7 @@ export const createMessage = (req, res) => {
     if(err) res.send(err);
 
     return res.json({
-      "success": "true",
+      "success": true,
       "message": "Successfully created message",
       message
     });
@@ -26,7 +26,7 @@ export const updateMessage = (req, res) => {
       if(err) res.send(err);
 
       return res.json({
-        "success": "true",
+        "success": true,
         "message": "Successfully upated message",
         message
       });
@@ -35,3 +35,13 @@ export const updateMessage = (req, res) => {
 
 
 // deleteMessage
+export const deleteMessage = (req, res) => {
+  Message.findByIdAndRemove(req.param.id, (err, message) => {
+    if(err) res.send(err);
+
+    return res.json({
+      "success": true,
+      "message": `Successfully deleted ${message.content}`
+    });
+  });
+};
