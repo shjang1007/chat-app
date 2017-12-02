@@ -1,22 +1,22 @@
+// import axios to handle http request
+import axios from "axios";
+
 export const createMessage = (message) => {
-  return $.ajax({
-    method: "post",
-    url: "api/messages",
-    data: { message }
-  });
+  return axios.post(
+    "api/messages",
+    message
+  );
 };
 
 export const deleteMessage = (id) => {
-  return $.ajax({
-    method: "delete",
-    url: `api/messages/${id}`
-  });
+  return axios.delete(
+    `api/messages/${id}`
+  );
 };
 
 export const updateMessage = (message) => {
-  return $.ajax({
-    method: "patch",
-    url: `api/messages/${message._id}`,
-    data: { message }
-  })
-}
+  return axios.patch(
+    `api/messages/${message._id}`,
+    message
+  );
+};

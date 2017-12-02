@@ -1,4 +1,4 @@
-// import ajax request to the server
+// import  request to the server
 import * as messageApiUtil from "../util/message_api_util";
 
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
