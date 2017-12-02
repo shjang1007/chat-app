@@ -16,3 +16,5 @@ router.route("/messages")
 router.route("/messages/:id")
   .patch(messageController.updateMessage)
   .delete(messageController.deleteMessage);
+
+  export default router;
