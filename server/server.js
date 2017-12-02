@@ -132,11 +132,11 @@ app.use(
   })
 )
 
-app.use(express.static(path.resolve(__dirname, "./public")));
+app.use(express.static(path.resolve(__dirname, "../public")));
 
 // Show index file all the time?
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../public", "index.html"));
 });
 
 
