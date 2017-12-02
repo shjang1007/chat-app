@@ -5,7 +5,7 @@ var messageSchema = new Schema({
   content: {
     type: String,
   },
-  updated_at: {
+  createdAt: {
     type: Date,
     default: Date.now
   }

@@ -15,7 +15,7 @@ var userSchema = new Schema({
     type: String,
     required: true
   },
-  updated_at: {
+  updatedAt: {
     type: Date,
     default: Date.now
   }
