@@ -20,6 +20,7 @@ export const fetchMessages = (req, res) => {
 // create message
 export const createMessage = (req, res) => {
   const newMessage = new Message(req.body);
+  
   newMessage.save((err, message) => {
     if(err) res.send(err);
 
