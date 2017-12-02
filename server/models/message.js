@@ -4,7 +4,9 @@ var Schema = mongoose.Schema;
 var messageSchema = new Schema({
   content: {
     type: String,
+    require: true
   },
+  user: String,
   createdAt: {
     type: Date,
     default: Date.now
@@ -12,7 +14,7 @@ var messageSchema = new Schema({
 });
 
 // Need to figure out how to setup foreign key relationship
-// Will have author/user and chatroom this message belongs to
+// just create author value
 
 
 // Create model!
