@@ -3,15 +3,14 @@
 
 // Import dependencies
 import express from "express";
-// const express = require("express");
-const path = require("path");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const session = require("express-session");
-const GoogleStrategy = require("passport-google-oauth2").Strategy;
-const sassMiddleware = require("node-sass-middleware");
+import path from "path";
+import bodyParser from "body-parser";
+import logger from "morgan";
+import mongoose from "mongoose";
+import passport from "passport";
+import session from "express-session";
+import sassMiddleware from "node-sass-middleware";
+import { Strategy } from "passport-google-oauth2";
 
 // Import websocket server logic module
 const socketServer = require("./socket-server");
@@ -77,7 +76,7 @@ app.use(bodyParser.json());
 // );
 
 // Passport to authenticate
-passport.use(new GoogleStrategy({
+passport.use(new Strategy({
     clientID: "957386202025-lk83nqjg87pblqiv0vkri4n0b638e1s2.apps.googleusercontent.com",
     clientSecret: "KJyKtN1BtBYJy3mfiGbtByD1",
     callbackURL: "http://localhost:4000/auth/google/callback"
