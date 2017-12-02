@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-var messageSchema = new Schema({
+const messageSchema = new Schema({
   content: {
     type: String,
     require: true
@@ -18,9 +18,9 @@ var messageSchema = new Schema({
 
 
 // Create model!
-var message = mongoose.model("Message", messageSchema);
+const message = mongoose.model("Message", messageSchema);
 
-module.exports = message;
+export default message;
 
 // Allowed Schema Types:
 // String

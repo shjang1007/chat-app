@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+const userSchema = new Schema({
   email: {
     type: String,
     required: true,
@@ -40,9 +40,10 @@ userSchema.statics.findOrCreate = (condition, doc, callback) => {
 
 
 // Create model!
-var user = mongoose.model("User", userSchema);
+const user = mongoose.model("User", userSchema);
 
-module.exports = user;
+export default user;
+
 
 // Allowed Schema Types:
 // String

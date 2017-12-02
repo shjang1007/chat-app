@@ -1,4 +1,4 @@
-const io = require("socket.io")
+import io from "socket.io";
 
 // Trying to determine what below variables are used for
 let chat;
@@ -93,7 +93,7 @@ const socketServer = {
         rooms.Array.from(new Set(rooms));
         socket.emit("rooms", rooms);
       });
-      
+
       this.handleClientDisconnection(socket);
     });
   }
@@ -102,4 +102,4 @@ const socketServer = {
 // Possible future methods
 // 1. Name change request
 
-module.exports = socketServer;
+export default socketServer;
