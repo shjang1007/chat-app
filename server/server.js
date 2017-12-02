@@ -24,6 +24,7 @@ mongoose.connect(url, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 // import Routes here
+const routes = require("./routes");
 
 // Enable CORS (Would like to read up a bit more on this to learn about CORS)
 app.use((req, res, next) => {
@@ -155,7 +156,7 @@ app.get("/logout", (req, res) => {
 // });
 
 // handle API request with /api prefix
-app.use("/api", router);
+app.use("/api", routes);
 
 // Will act as tester to see if our routes are working properly
 router.get("/", (req, res) => {
