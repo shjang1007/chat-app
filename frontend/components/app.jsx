@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return(
       <section>
-        <div>Hello</div>
+        <h2>Welcome to Brian's Chat Application</h2>
       </section>
     )
   }
