@@ -11,6 +11,7 @@ import * as messageController from "./controllers/messages-controller";
 
 // for now just create message and delete message and update message
 router.route("/messages")
+  .get(messageController.fetchMessages)
   .post(messageController.createMessage);
 
 router.route("/messages/:id")

@@ -4,11 +4,24 @@ import mongoose from "mongoose";
 // import model
 import Message from "../models/message";
 
+// get messages, this is for testing
+export const fetchMessages = (req, res) => {
+  Message.find().exec((err, messages) => {
+    if(err) res.send(err);
+
+    return res.json({
+      "success": true,
+      "message": "Successfully fetched messages",
+      messages
+    });
+  });
+};
+
 // create message
 export const createMessage = (req, res) => {
   const newMessage = new Message(req.body);
   newMessage.save((err, message) => {
-    if(err) return res.send(err);
+    if(err) res.send(err);
 
     return res.json({
       "success": true,
