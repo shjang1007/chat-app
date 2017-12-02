@@ -1,11 +1,11 @@
 // import dependencies
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 // import model
-const Message = require("../models/message");
+import Message from "../models/message";
 
 // create message
-const createMessage = (req, res) => {
+export const createMessage = (req, res) => {
   const newMessage = new Message(req.body);
   newMessage.save((err, message) => {
     if(err) return res.send(err);
@@ -18,10 +18,8 @@ const createMessage = (req, res) => {
   });
 };
 
-module.exports = createMessage
-
 // updateMessage
-const updateMessage = (req, res) => {
+export const updateMessage = (req, res) => {
   // first param is to lookup, second param is to provide content to update, third param is to return the updated obj.
   Message.findOneAndUpdate({ _id: req.body.id }, req.body, { new: true },
     (err, message) => {
@@ -35,11 +33,9 @@ const updateMessage = (req, res) => {
     });
 };
 
-module.exports = updateMessage
-
 
 // deleteMessage
-const deleteMessage = (req, res) => {
+export const deleteMessage = (req, res) => {
   Message.findByIdAndRemove(req.param.id, (err, message) => {
     if(err) res.send(err);
 
@@ -49,5 +45,3 @@ const deleteMessage = (req, res) => {
     });
   });
 };
-
-module.exports = deleteMessage

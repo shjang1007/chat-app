@@ -1,16 +1,13 @@
 // Import dependencies
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // Import controller files
-const messageController = require("./controllers/messages-controller");
+import * as messageController from "./controllers/messages-controller";
 
 // router.route("/users")
 // .post((req, res) => {
 //   }
-// )
-
-console.log(messageController)
 
 // for now just create message and delete message and update message
 router.route("/messages")

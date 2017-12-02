@@ -1,7 +1,7 @@
-// Prevent unwanted global variables
+// prevent unwanted global variables
 "use strict"
 
-// Import dependencies
+// import dependencies
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
@@ -12,19 +12,19 @@ import session from "express-session";
 import sassMiddleware from "node-sass-middleware";
 import { Strategy } from "passport-google-oauth2";
 
-// Import websocket server logic module
-const socketServer = require("./socket-server");
+// import websocket server logic module
+import socketServer from "./socket-server";
 
 // connect to MongoDB
 const url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";
 
 mongoose.connect(url, { useMongoClient: true });
 
-// Plugging my own JS native promise library
+// plugging my own JS native promise library
 mongoose.Promise = global.Promise;
 
 // import Routes here
-const routes = require("./routes");
+import routes from "./routes";
 
 // Enable CORS (Would like to read up a bit more on this to learn about CORS)
 app.use((req, res, next) => {
@@ -52,107 +52,62 @@ app.use(logger("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// // Middleware to handle requests
-// // Prior to express v4, things did not run in the order it was wrote
-// router.use(function(req, res, next) {
-//   // testing for now
-//   // possible validation point?
-//   console.log("Transfering @ middleware station");
-//   next(); // this is the key to middleware
+// Passport to authenticate
+// passport.use(new Strategy({
+//     clientID: "957386202025-lk83nqjg87pblqiv0vkri4n0b638e1s2.apps.googleusercontent.com",
+//     clientSecret: "KJyKtN1BtBYJy3mfiGbtByD1",
+//     callbackURL: "http://localhost:4000/auth/google/callback"
+//   },
+//   (accessToken, refreshToken, profile, done) => {
+//     User.findOrCreate(
+//       { userid: profile.id },
+//       {
+//         name: profile.displayName,
+//         userid: profile.id,
+//         email: profile.email
+//       },
+//       (err, user) => done(err, user));
+//     }
+// ));
+//
+// // Express and Passport Session
+// app.use(session({
+//   secret: "Secret",
+//   resave: true,
+//   saveUninitialized: true
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+//
+// passport.serializeUser(function(user, done) {
+//   // placeholder for custom user serialization
+//   // null is for errors
+//   done(null, user);
 // });
-
-// can to router.get but router.route allows you to tag request types on an on
-// router.route("/dummies").post(
-//   (req, res) => {
-//     const dummy = new Dummy();
-//     dummy.name = req.body.name;
 //
-//     dummy.save((err) => {
-//       if(err) res.send(err)
+// passport.deserializeUser(function(user, done) {
+//   // placeholder for custom user deserialization.
+//   // maybe you are going to get the user from mongo by id?
+//   // null is for errors
+//   done(null, user);
+// });
 //
-//       res.json({ message: "Dummy model created"});
-//     })
+// // to authenticate google
+// app.get("/auth/google", passport.authenticate("google",{scope: ["email", "profile"]}));
+//
+// // google to call this
+// app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
+//   function(req, res) {
+//     res.redirect("/");
 //   }
 // );
-
-// Passport to authenticate
-passport.use(new Strategy({
-    clientID: "957386202025-lk83nqjg87pblqiv0vkri4n0b638e1s2.apps.googleusercontent.com",
-    clientSecret: "KJyKtN1BtBYJy3mfiGbtByD1",
-    callbackURL: "http://localhost:4000/auth/google/callback"
-  },
-  (accessToken, refreshToken, profile, done) => {
-    User.findOrCreate(
-      { userid: profile.id },
-      {
-        name: profile.displayName,
-        userid: profile.id,
-        email: profile.email
-      },
-      (err, user) => done(err, user));
-    }
-));
-
-// Express and Passport Session
-app.use(session({
-  secret: "Secret",
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser(function(user, done) {
-  // placeholder for custom user serialization
-  // null is for errors
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  // placeholder for custom user deserialization.
-  // maybe you are going to get the user from mongo by id?
-  // null is for errors
-  done(null, user);
-});
-
-// to authenticate google
-app.get("/auth/google", passport.authenticate("google",{scope: ["email", "profile"]}));
-
-// google to call this
-app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
-  function(req, res) {
-    res.redirect("/");
-  }
-);
-
-app.get("/logout", (req, res) => {
-  console.log(req.session);
-    req.session.destroy((e) => {
-        req.logout();
-        res.redirect('/');
-    });
-});
-
-// Logout route?
-// app.get('/', function (req, res) {
-//   const html = "<ul>\
-//     <li><a href='/auth/google'>Google</a></li>\
-//     <li><a href='/logout'>logout</a></li>\
-//   </ul>";
 //
-//   // dump the user for debugging
-//   if (req.isAuthenticated()) {
-//     html += "<p>authenticated as user:</p>"
-//     html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
-//   }
-//
-//   res.send(html);
-// });
-//
-// app.get('/logout', function(req, res){
-//   console.log('logging out');
-//   req.logout();
-//   res.redirect('/');
+// app.get("/logout", (req, res) => {
+//   console.log(req.session);
+//     req.session.destroy((e) => {
+//         req.logout();
+//         res.redirect('/');
+//     });
 // });
 
 // handle API request with /api prefix
