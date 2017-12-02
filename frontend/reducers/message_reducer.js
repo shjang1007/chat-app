@@ -1,4 +1,4 @@
-import { RECEIVE_MESSAGE, DELETE_MESSAGE } from "../actions/message_actions";
+import { RECEIVE_MESSAGES, RECEIVE_MESSAGE, DELETE_MESSAGE } from "../actions/message_actions";
 
 const _initialState = {};
 
@@ -9,6 +9,8 @@ const messageReducer = (oldState = _initialState, action) => {
   let newState;
 
   switch (action.type) {
+    case RECEIVE_MESSAGES:
+      return action.messages;
     case RECEIVE_MESSAGE:
       newState = Object.assign(oldState, action.message);
       return newState;

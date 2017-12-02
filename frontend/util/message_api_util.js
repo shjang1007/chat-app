@@ -1,6 +1,13 @@
 // import axios to handle http request
 import axios from "axios";
 
+export const fetchMessages = (messages) => {
+  return axios.get(
+    "api/messages",
+    messages
+  );
+}
+
 export const createMessage = (message) => {
   return axios.post(
     "api/messages",
