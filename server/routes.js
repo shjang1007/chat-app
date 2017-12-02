@@ -3,7 +3,7 @@ import express from "express";
 const router = express.Router();
 
 // Import controller files
-import * as messageController from "./controllers/messages-controller";
+import * as messageController from "./controllers/messages_controller";
 
 // router.route("/users")
 // .post((req, res) => {

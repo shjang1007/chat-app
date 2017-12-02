@@ -13,7 +13,7 @@ import sassMiddleware from "node-sass-middleware";
 import { Strategy } from "passport-google-oauth2";
 
 // import websocket server logic module
-import socketServer from "./socket-server";
+import socketServer from "./socket_server";
 
 // connect to MongoDB
 const url = "mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj";

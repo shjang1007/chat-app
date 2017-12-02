@@ -9,6 +9,14 @@ export const createMessage = (message) => {
 export const deleteMessage = (id) => {
   return $.ajax({
     method: "delete",
-    url: "api/messages/${id}"
+    url: `api/messages/${id}`
   });
 };
+
+export const updateMessage = (message) => {
+  return $.ajax({
+    method: "patch",
+    url: `api/messages/${message._id}`,
+    data: { message }
+  })
+}
