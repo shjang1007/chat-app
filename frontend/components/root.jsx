@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 // import App
 import App from "./app";
-import Chat from "./chat/chat";
+import ChatRoom from "./chatroom/chat_room";
 import Home from "./pages/home";
 
 const Root = () => {
@@ -12,7 +12,7 @@ const Root = () => {
     <BrowserRouter>
       <div>
         <Route path="/" component={App}/>
-        <Route exact path="/chat" component={Chat}/>
+        <Route exact path="/chat" component={ChatRoom}/>
         <Route exact path="/home" component={Home}/>
       </div>
     </BrowserRouter>

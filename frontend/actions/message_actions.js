@@ -5,25 +5,25 @@ export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
-exprot const fetchMessages = (messages) => (dispatch) => {
+export const fetchMessages = (messages) => (dispatch) => {
   return messageApiUtil.fetchMessages(messages).then(
-    (messages) => dispatch(recieveMessages(messages));
+    (messages) => dispatch(recieveMessages(messages))
   );
 }
 
 export const createMessage = (message) => (dispatch) => {
   return messageApiUtil.createMessage(message).then(
-    (message) => dispatch(receiveMessage(message));
+    (message) => dispatch(receiveMessage(message))
   );
 };
 
 export const deleteMessage = (id) => (dispatch) => {
   return messageApiUtil.deleteMessage(id).then(
-    (id) => dispatch(deleteMessage(id));
+    (id) => dispatch(removeMessage(id))
   )
 }
 
-export const updateMessage
+// export const updateMessage
 
 export const receiveMessages = (messages) => {
   return({
@@ -39,7 +39,7 @@ export const receiveMessage = (message) => {
   });
 };
 
-export const deleteMessage = (id) => {
+export const removeMessage = (id) => {
   return({
     type: DELETE_MESSAGE,
     id

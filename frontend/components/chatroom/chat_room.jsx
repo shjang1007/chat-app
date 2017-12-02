@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ChatHistory extends Component {
+class ChatRoom extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,4 +14,4 @@ class ChatHistory extends Component {
   }
 };
 
-export default ChatHistory;
+export default ChatRoom;
