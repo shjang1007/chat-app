@@ -15,6 +15,7 @@ class ChatHistory extends Component {
   }
 
   render() {
+    debugger
     return(
       <section>
         <h4>Chat history!</h4>
