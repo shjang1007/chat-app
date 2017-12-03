@@ -5,8 +5,8 @@ export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
-export const fetchMessages = (messages) => (dispatch) => {
-  return messageApiUtil.fetchMessages(messages).then(
+export const fetchMessages = () => (dispatch) => {
+  return messageApiUtil.fetchMessages().then(
     (messages) => dispatch(recieveMessages(messages))
   );
 }
