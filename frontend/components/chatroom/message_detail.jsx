@@ -1,9 +1,9 @@
 // import dependencies
 import React from "react";
 
-const MessageDetail = ({ messages }) => {
+const MessageDetail = ({ message }) => {
   return(
-
+    <div>message</div>
   )
 };
 
