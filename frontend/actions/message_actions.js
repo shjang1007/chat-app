@@ -7,7 +7,7 @@ export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 export const fetchMessages = () => (dispatch) => {
   return messageApiUtil.fetchMessages().then(
-    (messages) => dispatch(recieveMessages(messages))
+    (messages) => dispatch(receiveMessages(messages))
   );
 }
 
