@@ -1,4 +1,8 @@
+// import dependencies
 import React, { Component } from "react";
+
+// import nested Component
+import ChatHistory from "./chat_history";
 
 class ChatRoom extends Component {
   constructor(props) {
@@ -8,7 +12,8 @@ class ChatRoom extends Component {
   render() {
     return(
       <section>
-        Welcome to Chat History
+        <h3>Welcome to Chat Room</h3>
+        <ChatHistory/>
       </section>
     )
   }

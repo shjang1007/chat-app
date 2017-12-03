@@ -1,5 +1,6 @@
 // import dependencies
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // import actions to dispatch
 import { fetchMessages } from "../../actions/message_actions";
@@ -9,10 +10,14 @@ class ChatHistory extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchMessages();
+  }
+
   render() {
     return(
       <section>
-        Welcome to Chat History
+        <h4>Chat history!</h4>
       </section>
     )
   }
