@@ -13,6 +13,8 @@ const messageSchema = new Schema({
   }
 });
 
+// Have sender receiver and chat rooms
+
 // Need to figure out how to setup foreign key relationship
 // just create author value
 
