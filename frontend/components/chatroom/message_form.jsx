@@ -1,11 +1,11 @@
 // import dependencies
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // import action
 import { createMessage } from "../../actions/message_actions";
 
-class MessageForm {
+class MessageForm extends Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +48,7 @@ class MessageForm {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createMessage: (message) => dispatch(createMessage(message));
+    createMessage: (message) => dispatch(createMessage(message))
   };
 };
 
