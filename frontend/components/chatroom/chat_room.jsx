@@ -15,6 +15,7 @@ class ChatRoom extends Component {
       <section>
         <h3>Welcome to Chat Room</h3>
         <ChatHistory/>
+        <MessageForm/>
       </section>
     )
   }
