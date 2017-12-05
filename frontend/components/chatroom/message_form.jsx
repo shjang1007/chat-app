@@ -32,7 +32,7 @@ class MessageForm extends Component {
 
   render() {
     return(
-      <form>
+      <form onSubmit={ this.handleSubmit }>
         <label>
           Send Message:
           <input
@@ -41,6 +41,7 @@ class MessageForm extends Component {
             onChange={ this.update("content") }
             required/>
         </label>
+         <button>Send Message</button>
       </form>
     );
   }
