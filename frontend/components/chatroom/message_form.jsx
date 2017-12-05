@@ -12,12 +12,31 @@ class MessageForm {
     this.state = {
       content: ""
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  update(propoerty) {
+    return (e) => {
+      return this.setState({[property]: e.target.value});
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.props.createMessage(this.state);
+
+    this.setState({ content: "" });
   }
 
   render() {
     return(
       <form>
-
+        <label>
+          Send Message:
+          <input/>
+        </label>
       </form>
     );
   }
