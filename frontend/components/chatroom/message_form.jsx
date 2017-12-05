@@ -35,7 +35,11 @@ class MessageForm {
       <form>
         <label>
           Send Message:
-          <input/>
+          <input
+            value={ this.state.content }
+            placeholder="Enter your message"
+            onChange={ this.update("content") }
+            required/>
         </label>
       </form>
     );
