@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 // import App
 import App from "./app";
 import ChatRoom from "./chatroom/chat_room";
-import Home from "./pages/home";
+import ChooseUser from "./pages/home";
 
 const Root = ({ store }) => {
   return(
@@ -14,6 +14,7 @@ const Root = ({ store }) => {
       <BrowserRouter>
         <div>
           <Route path="/" component={App}/>
+          <Route path="/get-started" component={ChooseUser}/>
           <Route exact path="/chat" component={ChatRoom}/>
           <Route exact path="/home" component={Home}/>
         </div>
