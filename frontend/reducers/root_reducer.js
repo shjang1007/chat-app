@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 
 // import reducers to be combined
 import messageReducer from "./message_reducer";
-import simpleSessionReducer from "./simple_session_actions";
+import simpleSessionReducer from "./simple_session_reducer";
 
 export default combineReducers({
   messageState: messageReducer,
