@@ -140,6 +140,6 @@ app.get("*", (req, res) => {
 });
 
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
   console.log(`Port ${port} is where we get stuff done!`)
 });
