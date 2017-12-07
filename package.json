@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack --watch",
-    "start": "webpack --config webpack.config.prod.js node server/server_hooked.js",
+    "start": "node server/server_hooked.js",
     "server": "nodemon server/server_hooked.js"
   },
   "repository": {
