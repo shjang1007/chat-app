@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack --watch",
-    "start": "nodemon server/server_hooked.js"
+    "start": "nodemon server/server_hooked.js",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
