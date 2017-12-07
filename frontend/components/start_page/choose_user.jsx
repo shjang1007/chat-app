@@ -30,7 +30,7 @@ class ChooseUser extends Component {
   }
 
   render() {
-    debugger
+    // Now that it works, add if statement to check whether user exists. if it does, render different html lines
     return(
       <form onSubmit={ this.handleSubmit }>
         <label>
@@ -49,7 +49,7 @@ class ChooseUser extends Component {
 
 const mapStateToProps = (state) => {
   return({
-    user: this.state.user
+    user: state.user
   })
 };
 
