@@ -16,7 +16,6 @@ const Root = ({ store }) => {
           <Route path="/" component={App}/>
           <Route path="/get-started" component={ChooseUser}/>
           <Route exact path="/chat" component={ChatRoom}/>
-          <Route exact path="/home" component={Home}/>
         </div>
       </BrowserRouter>
     </Provider>
