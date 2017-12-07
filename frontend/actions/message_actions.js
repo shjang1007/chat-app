@@ -7,13 +7,13 @@ export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 export const fetchMessages = () => (dispatch) => {
   return messageApiUtil.fetchMessages().then(
-    (json) => dispatch(receiveMessages(json.data.messages))
+    (data) => dispatch(receiveMessages(data.data.messages))
   );
 }
 
 export const createMessage = (message) => (dispatch) => {
   return messageApiUtil.createMessage(message).then(
-    (message) => dispatch(receiveMessage(message))
+    (data) => dispatch(receiveMessage(data.data.message))
   );
 };
 
