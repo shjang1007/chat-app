@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 // import App
 import App from "./app";
 import ChatRoom from "./chatroom/chat_room";
-import ChooseUser from "./pages/home";
+import ChooseUser from "./start_page/choose_user";
 
 const Root = ({ store }) => {
   return(
