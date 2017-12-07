@@ -3,6 +3,7 @@
 const webpack = require("webpack");
 const path = require("path");
 
+// Set module for production
 module.exports = {
   context: __dirname,
   entry: "./frontend/chat.jsx",
