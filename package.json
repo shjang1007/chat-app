@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack --watch",
-    "start": "cross-env NODE_ENV=production MONGO_URL=mongodb://bekgu:bekgu@ds161194.mlab.com:61194/bj node server/server_hooked.js",
+    "start": "node server/server_hooked.js",
     "server": "nodemon server/server_hooked.js",
     "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
