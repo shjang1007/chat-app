@@ -23,10 +23,3 @@ module.exports = {
   },
   devtool: "source-maps"
 };
-
-// Possible use of node loader?
-// {
-//   test: /\.scss?$/,
-//   exclude: /(node_modules)/,
-//   loaders: ["style", "css", "sass"]
-// }
