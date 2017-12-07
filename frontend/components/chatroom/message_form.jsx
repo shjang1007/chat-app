@@ -14,12 +14,11 @@ class MessageForm extends Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  update(propoerty) {
-    return (e) => {
-      return this.setState({[property]: e.target.value});
-    };
+  update(e) {
+    this.setState({ "content": e.target.value });
   }
 
   handleSubmit(e) {
@@ -38,7 +37,7 @@ class MessageForm extends Component {
           <input
             value={ this.state.content }
             placeholder="Enter your message"
-            onChange={ this.update("content") }
+            onChange={ this.update }
             required/>
         </label>
          <button>Send Message</button>
