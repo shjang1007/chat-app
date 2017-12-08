@@ -1,3 +1,3 @@
+[Chat App Live][chatapp]
 
-[Chat Application Live][chat-app]
-[chat-app]: https://dis-chat-now.herokuapp.com/
+[chatapp]: https://dis-chat-now.herokuapp.com
