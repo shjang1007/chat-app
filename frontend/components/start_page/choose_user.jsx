@@ -30,11 +30,13 @@ class ChooseUser extends Component {
   }
 
   render() {
+    const userName = this.props.user.userName
     // Now that it works, add if statement to check whether user exists. if it does, render different html lines
-    if (this.props.user.userName) {
+    if (userName) {
       return(
         <section>
-          <buttom>Change Username</buttom>
+          <div>Hi { userName }</div>
+          <button>Change Username</button>
         </section>
       );
     } else {
@@ -44,7 +46,7 @@ class ChooseUser extends Component {
             Send Message:
             <input
               value={ this.state.content }
-              placeholder="Enter your message"
+              placeholder="Enter your name"
               onChange={ this.update }
               required/>
           </label>
