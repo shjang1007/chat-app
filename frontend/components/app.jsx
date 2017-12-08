@@ -1,5 +1,8 @@
-// Import dependencies
+// import dependencies
 import React, { Component } from "react";
+
+// import login page
+import ChooseUser from "./start_page/choose_user";
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +12,7 @@ class App extends Component {
   render() {
     return(
       <section>
-        <h2>Welcome to Brian's Chat Application</h2>
+        <ChooseUser/>
       </section>
     )
   }
