@@ -26,6 +26,7 @@ class ChatHistory extends Component {
 const mapStateToProps = (state) => {
   return {
     messages: state.messageState,
+    user: state.user
   };
 };
 
