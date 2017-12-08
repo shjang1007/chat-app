@@ -31,19 +31,25 @@ class ChooseUser extends Component {
 
   render() {
     // Now that it works, add if statement to check whether user exists. if it does, render different html lines
-    return(
-      <form onSubmit={ this.handleSubmit }>
-        <label>
-          Send Message:
-          <input
-            value={ this.state.content }
-            placeholder="Enter your message"
-            onChange={ this.update }
-            required/>
-        </label>
-         <button>Send Message</button>
-      </form>
-    );
+    if (this.props.user.userName) {
+      return(
+        
+      );
+    } else {
+      return(
+        <form onSubmit={ this.handleSubmit }>
+          <label>
+            Send Message:
+            <input
+              value={ this.state.content }
+              placeholder="Enter your message"
+              onChange={ this.update }
+              required/>
+          </label>
+          <button>Send Message</button>
+        </form>
+      );
+    }
   }
 }
 
