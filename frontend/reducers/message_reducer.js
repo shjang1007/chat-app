@@ -4,7 +4,6 @@ const _initialState = {};
 
 const messageReducer = (oldState = _initialState, action) => {
   // Keep oldState immutable
-  Object.freeze(oldState);
 
   let newState;
 
@@ -12,7 +11,6 @@ const messageReducer = (oldState = _initialState, action) => {
     case RECEIVE_MESSAGES:
       return action.messages;
     case RECEIVE_MESSAGE:
-      debugger
       newState = Object.assign(oldState, action.message);
       return newState;
     case DELETE_MESSAGE:
