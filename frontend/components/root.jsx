@@ -6,15 +6,14 @@ import { Provider } from "react-redux";
 // import App
 import App from "./app";
 import ChatRoom from "./chatroom/chat_room";
-import ChooseUser from "./start_page/choose_user";
+// import ChooseUser from "./start_page/choose_user";
 
 const Root = ({ store }) => {
   return(
     <Provider store={ store }>
       <BrowserRouter>
         <div>
-          <Route path="/" component={App}/>
-          <Route path="/get-started" component={ChooseUser}/>
+          <Route exact path="/" component={App}/>
           <Route exact path="/chat" component={ChatRoom}/>
         </div>
       </BrowserRouter>
