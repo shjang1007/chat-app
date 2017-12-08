@@ -1,4 +1,3 @@
 
-[Minimum Live][minimum]
-
-[minimum]: http://www.minimum-story.us
+[Chat Application Live][chatApp]
+[chatApp]: https://dis-chat-now.herokuapp.com/
