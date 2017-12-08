@@ -33,7 +33,9 @@ class ChooseUser extends Component {
     // Now that it works, add if statement to check whether user exists. if it does, render different html lines
     if (this.props.user.userName) {
       return(
-        
+        <section>
+          <buttom>Change Username</buttom>
+        </section>
       );
     } else {
       return(
