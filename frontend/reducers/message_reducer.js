@@ -11,11 +11,11 @@ const messageReducer = (oldState = _initialState, action) => {
   switch (action.type) {
     case RECEIVE_MESSAGES:
 
-      return { messages: action.messages; }
+      return { messages: action.messages }
 
     case ADD_MESSAGE:
-      updatedMessages = oldState.messages.push(action.message);
-
+      updatedMessages = oldState.messages.concat(action.message);
+      
       return { messages: updatedMessages };
 
     case DELETE_MESSAGE:
@@ -26,8 +26,8 @@ const messageReducer = (oldState = _initialState, action) => {
         if (element.id === action.messageId) {
           index = i;
           break
-        };
-      };
+        }
+      }
 
       updatedMessages.splice(index, 1);
 

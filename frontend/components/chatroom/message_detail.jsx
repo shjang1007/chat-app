@@ -4,7 +4,7 @@ import React from "react";
 const MessageDetail = ({ message, user }) => {
   return(
     <li>
-      <div>{ user.name} said: { message }</div>
+      <div>{ user.name} said: { message.content }</div>
     </li>
   )
 };

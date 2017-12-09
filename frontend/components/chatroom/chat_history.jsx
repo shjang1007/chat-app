@@ -19,9 +19,9 @@ class ChatHistory extends Component {
 
   render() {
     const { user, messages } = this.props;
-    debugger
-    const messageList = messages.map( (message) => {
-      return <MessageDetail message={message} user={user}/>
+
+    const messageList = messages.map( (message, index) => {
+      return <MessageDetail key={index} message={message} user={user}/>
     });
 
     return(
@@ -32,6 +32,7 @@ class ChatHistory extends Component {
         <ul>
           { messageList }
         </ul>
+        <br/>
       </section>
     )
   }
