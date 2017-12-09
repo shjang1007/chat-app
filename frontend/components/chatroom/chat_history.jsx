@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 // import actions to dispatch
 import { fetchMessages } from "../../actions/message_actions";
 
+// import modular component
+import MessageDetail from "./message_detail";
+
 class ChatHistory extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +18,20 @@ class ChatHistory extends Component {
   }
 
   render() {
+    const { user, messages } = this.props;
+    debugger
+    const messageList = messages.map( (message) => {
+      return <MessageDetail message={message} user={user}/>
+    });
+
     return(
       <section>
         <h4>Chat history!</h4>
-        <div>{ this.props.user.name } is currently logged in</div>
+        <div>{ user.name } is currently logged in</div>
         <br/>
+        <ul>
+          { messageList }
+        </ul>
       </section>
     )
   }

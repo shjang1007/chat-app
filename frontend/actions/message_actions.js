@@ -2,7 +2,7 @@
 import * as messageApiUtil from "../util/message_api_util";
 
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
-export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+export const ADD_MESSAGE = "ADD_MESSAGE";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 export const fetchMessages = () => (dispatch) => {
@@ -13,7 +13,7 @@ export const fetchMessages = () => (dispatch) => {
 
 export const createMessage = (message) => (dispatch) => {
   return messageApiUtil.createMessage(message).then(
-    (data) => dispatch(receiveMessage(data.data.message))
+    (data) => dispatch(addMessage(data.data.message))
   );
 };
 
@@ -32,9 +32,9 @@ export const receiveMessages = (messages) => {
   });
 };
 
-export const receiveMessage = (message) => {
+export const addMessage = (message) => {
   return({
-    type: RECEIVE_MESSAGE,
+    type: ADD_MESSAGE,
     message
   });
 };
