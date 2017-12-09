@@ -15,9 +15,9 @@ const Root = ({ store }) => {
       <BrowserRouter>
         <div>
           <Route exact path="/" component={App}/>
-          <Route component={EnsureLoggedin}>
+          <EnsureLoggedin>
             <Route exact path="/chat" component={ChatRoom}/>
-          </Route>
+          </EnsureLoggedin>
         </div>
       </BrowserRouter>
     </Provider>

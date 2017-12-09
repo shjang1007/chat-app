@@ -1,6 +1,5 @@
 // import dependencies
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 // import nested Component
 import ChatHistory from "./chat_history";
@@ -22,4 +21,6 @@ class ChatRoom extends Component {
       </section>
     )
   }
-};
+}
+
+export default ChatRoom;

@@ -4,10 +4,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class EnsureLoggedin extends Component {
-  componentWillUnmount() {
-    debugger
-  }
-
   componentDidMount() {
     if (!this.props.user.username) {
       this.props.history.push("/");
@@ -15,7 +11,9 @@ class EnsureLoggedin extends Component {
   }
 
   render() {
-
+    return(
+      <div>It's Ensure Loggedin Component</div>
+    )
   }
 }
 
@@ -24,12 +22,6 @@ const mapStateToProps = (state) => {
 };
 
 export default withRouter(connect(
-  mapStateToProps
+  mapStateToProps,
+  null
 )(EnsureLoggedin));
-
-//   componentWillMount() {
-  //   debugger
-  //   const username = ;
-  //
-  //   if (!username) replace("/");
-  // }
