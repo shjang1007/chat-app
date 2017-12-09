@@ -1,7 +1,7 @@
 import { RECEIVE_MESSAGES, ADD_MESSAGE, DELETE_MESSAGE } from "../actions/message_actions";
 
 const _initialState = {
-  messages: [];
+  messages: []
 };
 
 const messageReducer = (oldState = _initialState, action) => {
