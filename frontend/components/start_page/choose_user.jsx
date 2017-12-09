@@ -15,10 +15,11 @@ class ChooseUser extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.handleChangeUser = this.handleChangeUser.bind(this);
   }
 
   update(e) {
-    this.setState({ "userName": e.target.value });
+    this.setState({ "name": e.target.value });
   }
 
   handleSubmit(e) {
@@ -26,24 +27,30 @@ class ChooseUser extends Component {
 
     this.props.receiveUser(this.state);
 
-    this.setState({ userName: "" });
+    this.setState({ name: "" });
+  }
+
+  handleChangeUser(e) {
+    this.props.removeUser();
   }
 
   render() {
-    const userName = this.props.user.userName
+    const name = this.props.user.name
+
     // Now that it works, add if statement to check whether user exists. if it does, render different html lines
-    if (userName) {
+    if (name) {
       return(
         <section>
-          <div>Hi { userName }</div>
-          <button>Change Username</button>
+          <div>Hi { name }</div>
+          <br/>
+          <button onClick={ this.handleChangeUser }>Change Username</button>
         </section>
       );
     } else {
       return(
         <form onSubmit={ this.handleSubmit }>
+          <h4>Hello there, Please enter your name to get started ~!</h4>
           <label>
-            Send Message:
             <input
               value={ this.state.content }
               placeholder="Enter your name"

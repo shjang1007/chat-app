@@ -18,6 +18,8 @@ class ChatHistory extends Component {
     return(
       <section>
         <h4>Chat history!</h4>
+        <div>{ this.props.user.name } is currently logged in</div>
+        <br/>
       </section>
     )
   }
