@@ -4,16 +4,18 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class EnsureLoggedin extends Component {
-  componentDidMount() {
-    if (!this.props.user.username) {
+  componentWillMount() {
+    if (!this.props.user.name) {
       this.props.history.push("/");
     }
   }
 
   render() {
-    return(
-      <div>It's Ensure Loggedin Component</div>
-    )
+    return (
+      <div>
+        { this.props.children }
+      </div>
+    );
   }
 }
 
