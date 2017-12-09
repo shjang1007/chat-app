@@ -1,6 +1,7 @@
 // import dependencies
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 // import actions
 import { receiveUser, removeUser } from "../../actions/simple_session_actions";
@@ -28,6 +29,8 @@ class ChooseUser extends Component {
     this.props.receiveUser(this.state);
 
     this.setState({ name: "" });
+
+    this.props.history.push("/chat");
   }
 
   handleChangeUser(e) {
@@ -77,7 +80,7 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChooseUser);
+)(ChooseUser));
