@@ -39,7 +39,7 @@ class ChatHistory extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    messages: state.messageState,
+    messages: state.messageState.messages,
     user: state.user
   };
 };
