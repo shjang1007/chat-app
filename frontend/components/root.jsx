@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 // import App
 import App from "./app";
-import ChatRoom from "./chatroom/chat_room";
+import ChatRoom from "./chat_room/chat_room";
 import EnsureLoggedin from "./ensure_loggedin/ensure_loggedin";
 // import ChooseUser from "./start_page/choose_user";
 
