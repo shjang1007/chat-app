@@ -1,5 +1,6 @@
 // import dependencies
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // import nested Component
 import ChatHistory from "./chat_history";
@@ -11,10 +12,12 @@ class ChatRoom extends Component {
   }
 
   render() {
+    const user = this.props.user;
+
     return(
       <section>
         <h3>Welcome to Chat Room</h3>
-        <ChatHistory/>
+        <ChatHistory user={ user }/>
         <MessageForm/>
       </section>
     )

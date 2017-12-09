@@ -1,10 +1,10 @@
 // import dependencies
 import React from "react";
 
-const MessageDetail = ({ message, user }) => {
+const MessageDetail = ({ message }) => {
   return(
     <li>
-      <div>{ user.name} said: { message.content }</div>
+      <div>{ message.user}: { message.content }</div>
     </li>
   )
 };
