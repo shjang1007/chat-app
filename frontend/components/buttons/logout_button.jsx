@@ -8,14 +8,13 @@ import { removeUser } from "../../actions/simple_session_actions";
 
 const LogoutButton = ({ removeUser, history }) => {
   const logoutUser = (e) => {
-    debugger
-    removeUser().then(
-      history.push("/");
-    )
+    removeUser();
+
+    history.push("/");
   }
 
   return(
-    <button onClick={ logoutUser }>Change Username</button>
+    <button onClick={ logoutUser }>Logout!  </button>
   );
 };
 
