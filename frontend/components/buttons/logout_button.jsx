@@ -8,6 +8,9 @@ import { removeUser } from "../../actions/simple_session_actions";
 
 const LogoutButton = ({ removeUser }) => {
 
+  return(
+    <button onClick={ (e) => removeUser() }>Change Username</button>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => {
