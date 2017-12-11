@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import nested Component
 import ChatHistory from "./chat_history";
 import MessageForm from "./message_form";
-import LogoutButton from "../buttons/logout_user";
+import LogoutButton from "../buttons/logout_button";
 
 class ChatRoom extends Component {
   constructor(props) {
